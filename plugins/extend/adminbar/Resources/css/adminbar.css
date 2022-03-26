@@ -1,0 +1,41 @@
+/* Toolbar */
+#adminbar-toolbar * {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    font-size: 12px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    background: none;
+    line-height: 100%;
+}
+
+#adminbar-toolbar {
+    width: 100%;
+    display: block;
+    background: #1c1c1c;
+}
+
+#adminbar-toolbar .adminbar-section {
+    display: inline-block;
+    padding: 10px 0px 10px 15px;
+}
+
+#adminbar-toolbar .adminbar-section-link {
+    display: inline-block;
+    padding: 10px 15px;
+}
+
+#adminbar-toolbar .adminbar-section-link:hover {
+    background-color: #3f3f3f;
+}
+
+#adminbar-toolbar .adminbar-section-link:hover a {
+    text-decoration: underline;
+}
