@@ -28,7 +28,7 @@ class AdminBarPlugin extends ExtendPlugin
      */
     public function onHead(array $args): void
     {
-        $args['css'][] = $this->getWebPath() . '/Resources/css/adminbar.css';
+        $args['css'][] = $this->getWebPath() . '/resources/css/adminbar.css';
     }
 
     /**
