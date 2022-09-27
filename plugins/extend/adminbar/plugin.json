@@ -9,6 +9,6 @@
   "url": "https://github.com/friends-of-sunlight-cms/",
   "class": "AdminBarPlugin",
   "langs": {
-    "adminbar": "resources/languages"
+    "adminbar": "lang"
   }
 }
