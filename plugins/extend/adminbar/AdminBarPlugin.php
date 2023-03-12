@@ -23,17 +23,11 @@ class AdminBarPlugin extends ExtendPlugin
         ]);
     }
 
-    /**
-     * @param array $args
-     */
     public function onHead(array $args): void
     {
         $args['css'][] = $this->getWebPath() . '/resources/css/adminbar.css';
     }
 
-    /**
-     * @param array $args
-     */
     public function onToolbarRender(array $args): void
     {
         $config = $this->getConfig();
@@ -139,6 +133,7 @@ class AdminBarPlugin extends ExtendPlugin
      *  EXTEND CONFIGURATION
      * ============================================================================
      */
+
     protected function getConfigDefaults(): array
     {
         return [
