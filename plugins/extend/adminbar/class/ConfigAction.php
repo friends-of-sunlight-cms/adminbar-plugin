@@ -2,11 +2,11 @@
 
 namespace SunlightExtend\Adminbar;
 
-use Sunlight\Plugin\Action\ConfigAction;
+use Sunlight\Plugin\Action\ConfigAction as BaseConfigAction;
 use Sunlight\User;
 use Sunlight\Util\ConfigurationFile;
 
-class Configuration extends ConfigAction
+class ConfigAction extends BaseConfigAction
 {
     protected function getFields(): array
     {

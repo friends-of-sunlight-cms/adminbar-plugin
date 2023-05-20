@@ -25,7 +25,7 @@ class AdminBarPlugin extends ExtendPlugin
 
     public function onHead(array $args): void
     {
-        $args['css'][] = $this->getWebPath() . '/resources/css/adminbar.css';
+        $args['css'][] = $this->getWebPath() . '/public/css/adminbar.css';
     }
 
     public function onToolbarRender(array $args): void
@@ -109,23 +109,23 @@ class AdminBarPlugin extends ExtendPlugin
         Extend::call('adminbar.items', ['items' => &$map, 'page_type' => $currentType]);
 
         // render toolbar
-        $args['output'] .= "<div id='adminbar-toolbar'>
-                                <div class='adminbar-section'>[AdminBar]</div>";
+        $args['output'] .= '<div id="adminbar-toolbar">
+                                <div class="adminbar-section">[AdminBar]</div>';
 
         foreach ($map as $label => $val) {
             $isLink = $val['is_link'] ?? false;
 
-            $args['output'] .= "<div class='adminbar-section" . ($isLink ? '-link right' : '') . "'>";
+            $args['output'] .= '<div class="adminbar-section' . ($isLink ? '-link right' : '') . '">';
             if ($isLink) {
                 $args['output'] .= '<a href="' . _e($val['value']) . '" target="_blank">' . $label . '</a>';
             } else {
                 $args['output'] .= $label . ($val['value'] !== null ? ': ' . $val['value'] : '');
             }
-            $args['output'] .= "</div>";
+            $args['output'] .= '</div>';
         }
 
-        $args['output'] .= "<div class='cleaner'></div>";
-        $args['output'] .= "</div>";
+        $args['output'] .= '<div class="cleaner"></div>';
+        $args['output'] .= '</div>';
     }
 
     /**
@@ -145,7 +145,7 @@ class AdminBarPlugin extends ExtendPlugin
     public function getAction(string $name): ?PluginAction
     {
         if ($name === 'config') {
-            return new Configuration($this);
+            return new ConfigAction($this);
         }
         return parent::getAction($name);
     }
