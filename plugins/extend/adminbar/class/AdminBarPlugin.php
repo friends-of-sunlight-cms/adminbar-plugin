@@ -36,9 +36,8 @@ class AdminBarPlugin extends ExtendPlugin
             return;
         }
 
-        $types = Page::getTypes();
         $type = $args['page']['type'];
-        $currentType = $types[$type];
+        $currentType = Page::TYPES[$type];
 
         $map = [
             _lang('global.type') => ['value' => $currentType, 'is_link' => false],
