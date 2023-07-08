@@ -126,27 +126,4 @@ class AdminBarPlugin extends ExtendPlugin
         $args['output'] .= '<div class="cleaner"></div>';
         $args['output'] .= '</div>';
     }
-
-    /**
-     * ============================================================================
-     *  EXTEND CONFIGURATION
-     * ============================================================================
-     */
-
-    protected function getConfigDefaults(): array
-    {
-        return [
-            'min_level' => 1000,
-            'bar_position' => 'after'
-        ];
-    }
-
-    public function getAction(string $name): ?PluginAction
-    {
-        if ($name === 'config') {
-            return new ConfigAction($this);
-        }
-        return parent::getAction($name);
-    }
-
 }
