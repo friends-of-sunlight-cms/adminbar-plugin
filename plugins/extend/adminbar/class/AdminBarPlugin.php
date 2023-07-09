@@ -4,7 +4,6 @@ namespace SunlightExtend\Adminbar;
 
 use Sunlight\Extend;
 use Sunlight\Page\Page;
-use Sunlight\Plugin\Action\PluginAction;
 use Sunlight\Plugin\ExtendPlugin;
 use Sunlight\Router;
 use Sunlight\Template;
@@ -25,7 +24,7 @@ class AdminBarPlugin extends ExtendPlugin
 
     public function onHead(array $args): void
     {
-        $args['css'][] = $this->getWebPath() . '/public/css/adminbar.css';
+        $args['css'][] = $this->getAssetPath('public/css/adminbar.css');
     }
 
     public function onToolbarRender(array $args): void

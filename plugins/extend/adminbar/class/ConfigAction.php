@@ -2,6 +2,7 @@
 
 namespace SunlightExtend\Adminbar;
 
+use Fosc\Feature\Plugin\Config\FieldGenerator;
 use Sunlight\Plugin\Action\ConfigAction as BaseConfigAction;
 use Sunlight\User;
 use Sunlight\Util\ConfigurationFile;
@@ -10,23 +11,19 @@ class ConfigAction extends BaseConfigAction
 {
     protected function getFields(): array
     {
-        $config = $this->plugin->getConfig();
+        $langPrefix = "%p:adminbar.config";
 
-        return [
-            'bar_position' => [
-                'label' => _lang('adminbar.cfg.bar_position'),
-                'input' => _buffer(function () use ($config) { ?>
-                    <select name="config[bar_position]">
-                        <option value="before" <?= $config['bar_position'] === 'before' ? ' selected' : '' ?>><?= _lang('adminbar.cfg.bar_position.before') ?></option>
-                        <option value="after" <?= $config['bar_position'] === 'after' ? ' selected' : '' ?>><?= _lang('adminbar.cfg.bar_position.after') ?></option>
-                    </select>
-                <?php }),
+        $gen = new FieldGenerator($this->plugin);
+        $gen->generateField('bar_position', $langPrefix, '%select', [
+            'class' => 'inputsmall',
+            'select_options' => [
+                'before' => _lang('adminbar.config.bar_position.before'),
+                'after' => _lang('adminbar.config.bar_position.after'),
             ],
-            'min_level' => [
-                'label' => _lang('adminbar.cfg.min_level'),
-                'input' => '<input type="number" min="1" max="' . User::MAX_ASSIGNABLE_LEVEL . '" name="config[min_level]" value="' . $config['min_level'] . '" class="inputsmall"">',
-            ],
-        ];
+        ])
+            ->generateField('min_level', $langPrefix, '%number', ['class' => 'inputsmall']);
+
+        return $gen->getFields();
     }
 
     protected function mapSubmittedValue(ConfigurationFile $config, string $key, array $field, $value): ?string
