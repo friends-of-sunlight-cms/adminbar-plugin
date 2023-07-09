@@ -1,26 +1,26 @@
 {
-  "$schema": "../../../system/schema/extend.json",
-  "name": "AdminBar",
-  "description": "Adds a bar to pages/articles/topics with basic information about the page and useful links to make it easier to manage.",
-  "version": "0.9.2",
-  "environment": {
-    "system": "^8.0"
-  },
-  "dependencies": {
-    "fosc-lib": ">=0.9.2"
-  },
-  "authors": [
-    {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
-  ],
-  "class": "AdminBarPlugin",
-  "config_defaults": {
-    "min_level": 1000,
-    "bar_position": "after"
-  },
-  "actions": {
-    "config": "ConfigAction"
-  },
-  "langs": {
-    "adminbar": "lang"
-  }
+    "$schema": "../../../system/schema/extend.json",
+    "name": "AdminBar",
+    "description": "Adds a bar to pages/articles/topics with basic information about the page and useful links to make it easier to manage.",
+    "version": "0.9.2",
+    "environment": {
+        "system": "^8.0"
+    },
+    "dependencies": {
+        "fosc-lib": ">=0.9.2"
+    },
+    "authors": [
+        {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
+    ],
+    "class": "AdminBarPlugin",
+    "config_defaults": {
+        "min_level": 1000,
+        "bar_position": "after"
+    },
+    "actions": {
+        "config": "ConfigAction"
+    },
+    "langs": {
+        "adminbar": "lang"
+    }
 }
