@@ -2,10 +2,10 @@
     "$schema": "../../../system/schema/extend.json",
     "name": "AdminBar",
     "description": "Adds a bar to pages/articles/topics with basic information about the page and useful links to make it easier to manage.",
-    "version": "1.0.0",
     "authors": [
         {"name": "Friends of Sunlight CMS", "url": "https://github.com/friends-of-sunlight-cms/"}
     ],
+    "version": "1.0.0",
     "environment": {
         "system": "^8.0"
     },
