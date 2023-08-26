@@ -20,8 +20,8 @@ class ConfigAction extends BaseConfigAction
                 'before' => _lang('adminbar.config.bar_position.before'),
                 'after' => _lang('adminbar.config.bar_position.after'),
             ],
-        ])
-            ->generateField('min_level', $langPrefix, '%number', ['class' => 'inputsmall']);
+        ]);
+        $gen->generateField('min_level', $langPrefix, '%number', ['class' => 'inputsmall']);
 
         return $gen->getFields();
     }
