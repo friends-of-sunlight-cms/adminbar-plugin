@@ -9,9 +9,6 @@
     "environment": {
         "system": "^8.0"
     },
-    "dependencies": {
-        "fosc-lib": ">=1.0.0"
-    },
     "config_defaults": {
         "min_level": 1000,
         "bar_position": "after"
