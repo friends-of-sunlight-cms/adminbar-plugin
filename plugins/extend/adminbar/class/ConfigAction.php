@@ -6,6 +6,7 @@ use Sunlight\Util\Form;
 use Sunlight\Plugin\Action\ConfigAction as BaseConfigAction;
 use Sunlight\User;
 use Sunlight\Util\ConfigurationFile;
+use Sunlight\Util\Request;
 
 class ConfigAction extends BaseConfigAction
 {
@@ -16,16 +17,14 @@ class ConfigAction extends BaseConfigAction
         return [
             'bar_position' => [
                 'label' => _lang('adminbar.config.bar_position'),
-                'input' => _buffer(function () use ($config) { ?>
-                    <select name="config[bar_position]" class="inputsmall">
-                        <option value="before" <?= Form::selectOption($config['bar_position'] === 'before') ?>><?= _lang('adminbar.config.bar_position.before') ?></option>
-                        <option value="after" <?= Form::selectOption($config['bar_position'] === 'after') ?>><?= _lang('adminbar.config.bar_position.after') ?></option>
-                    </select>
-                <?php }),
+                'input' => Form::select('config[bar_position]', [
+                    'before' => _lang('adminbar.config.bar_position.before'),
+                    'after' => _lang('adminbar.config.bar_position.after'),
+                ], $config['bar_position'], ['class' => 'inputsmall']),
             ],
             'min_level' => [
                 'label' => _lang('adminbar.config.min_level'),
-                'input' => '<input type="number" name="config[min_level]" min="1" max="' . User::MAX_ASSIGNABLE_LEVEL . '" value="' . Form::restorePostValue('min_level', $config['min_level'], false) . '" class="inputsmall">',
+                'input' => Form::input('number', 'config[min_level]', Request::post('min_level', $config['min_level']), ['checked' => Form::loadCheckbox('config', $config['min_level'],'min_level'), 'min' => -1, 'max' => User::MAX_ASSIGNABLE_LEVEL, 'class' => 'inputsmall']),
             ],
         ];
     }
