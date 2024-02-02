@@ -24,7 +24,7 @@ class ConfigAction extends BaseConfigAction
             ],
             'min_level' => [
                 'label' => _lang('adminbar.config.min_level'),
-                'input' => Form::input('number', 'config[min_level]', Request::post('min_level', $config['min_level']), ['checked' => Form::loadCheckbox('config', $config['min_level'],'min_level'), 'min' => -1, 'max' => User::MAX_ASSIGNABLE_LEVEL, 'class' => 'inputsmall']),
+                'input' => Form::input('number', 'config[min_level]', Request::post('min_level', $config['min_level']), ['checked' => Form::loadCheckbox('config', $config['min_level'], 'min_level'), 'min' => -1, 'max' => User::MAX_ASSIGNABLE_LEVEL, 'class' => 'inputsmall']),
             ],
         ];
     }
